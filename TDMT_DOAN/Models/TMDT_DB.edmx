@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TMDT_DB3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TMDT_DB3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="API">
           <Key>
             <PropertyRef Name="MA" />
@@ -478,11 +478,90 @@
             <End Role="THANHVIEN" EntitySet="THANHVIEN" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TMDT_DB3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TMDT_DB3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="APIs" EntityType="TMDT_DB3Model.API" />
+          <EntitySet Name="BANGGHIDAUGIAs" EntityType="TMDT_DB3Model.BANGGHIDAUGIA" />
+          <EntitySet Name="CHITIETDONHANGs" EntityType="TMDT_DB3Model.CHITIETDONHANG" />
+          <EntitySet Name="CHITIETHOPDONGBANHANGs" EntityType="TMDT_DB3Model.CHITIETHOPDONGBANHANG" />
+          <EntitySet Name="CHITIETHOPDONGMUAHANGs" EntityType="TMDT_DB3Model.CHITIETHOPDONGMUAHANG" />
+          <EntitySet Name="DONHANGs" EntityType="TMDT_DB3Model.DONHANG" />
+          <EntitySet Name="HOPDONGBANHANGs" EntityType="TMDT_DB3Model.HOPDONGBANHANG" />
+          <EntitySet Name="HOPDONGMUAHANGs" EntityType="TMDT_DB3Model.HOPDONGMUAHANG" />
+          <EntitySet Name="HOTROONLINEs" EntityType="TMDT_DB3Model.HOTROONLINE" />
+          <EntitySet Name="KHUYENMAIs" EntityType="TMDT_DB3Model.KHUYENMAI" />
+          <EntitySet Name="LOAISANPHAMs" EntityType="TMDT_DB3Model.LOAISANPHAM" />
+          <EntitySet Name="LOAITHANHVIENs" EntityType="TMDT_DB3Model.LOAITHANHVIEN" />
+          <EntitySet Name="NHACUNGCAPs" EntityType="TMDT_DB3Model.NHACUNGCAP" />
+          <EntitySet Name="NHASANXUATs" EntityType="TMDT_DB3Model.NHASANXUAT" />
+          <EntitySet Name="SANPHAMs" EntityType="TMDT_DB3Model.SANPHAM" />
+          <EntitySet Name="THANHTOANONLINEs" EntityType="TMDT_DB3Model.THANHTOANONLINE" />
+          <EntitySet Name="THANHVIENs" EntityType="TMDT_DB3Model.THANHVIEN" />
+          <EntitySet Name="TRANGTHAIDONHANGs" EntityType="TMDT_DB3Model.TRANGTHAIDONHANG" />
+          <AssociationSet Name="FK_BANGGHIDAUGIA_NHACUNGCAP" Association="TMDT_DB3Model.FK_BANGGHIDAUGIA_NHACUNGCAP">
+            <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
+            <End Role="BANGGHIDAUGIA" EntitySet="BANGGHIDAUGIAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BANGGHIDAUGIA_SANPHAM" Association="TMDT_DB3Model.FK_BANGGHIDAUGIA_SANPHAM">
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+            <End Role="BANGGHIDAUGIA" EntitySet="BANGGHIDAUGIAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHITIETDONHANG_DONHANG" Association="TMDT_DB3Model.FK_CHITIETDONHANG_DONHANG">
+            <End Role="DONHANG" EntitySet="DONHANGs" />
+            <End Role="CHITIETDONHANG" EntitySet="CHITIETDONHANGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHITIETDONHANG_SANPHAM" Association="TMDT_DB3Model.FK_CHITIETDONHANG_SANPHAM">
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+            <End Role="CHITIETDONHANG" EntitySet="CHITIETDONHANGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHITIETHOPDONGBANHANG_SANPHAM" Association="TMDT_DB3Model.FK_CHITIETHOPDONGBANHANG_SANPHAM">
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+            <End Role="CHITIETHOPDONGBANHANG" EntitySet="CHITIETHOPDONGBANHANGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHITIETHOPDONGMUAHANG_HOPDONGMUAHANG" Association="TMDT_DB3Model.FK_CHITIETHOPDONGMUAHANG_HOPDONGMUAHANG">
+            <End Role="HOPDONGMUAHANG" EntitySet="HOPDONGMUAHANGs" />
+            <End Role="CHITIETHOPDONGMUAHANG" EntitySet="CHITIETHOPDONGMUAHANGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHITIETHOPDONGMUAHANG_SANPHAM" Association="TMDT_DB3Model.FK_CHITIETHOPDONGMUAHANG_SANPHAM">
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+            <End Role="CHITIETHOPDONGMUAHANG" EntitySet="CHITIETHOPDONGMUAHANGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DONHANG_THANHVIEN" Association="TMDT_DB3Model.FK_DONHANG_THANHVIEN">
+            <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+            <End Role="DONHANG" EntitySet="DONHANGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DONHANG_TRANGTHAIDONHANG" Association="TMDT_DB3Model.FK_DONHANG_TRANGTHAIDONHANG">
+            <End Role="TRANGTHAIDONHANG" EntitySet="TRANGTHAIDONHANGs" />
+            <End Role="DONHANG" EntitySet="DONHANGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOPDONGMUAHANG_NHACUNGCAP" Association="TMDT_DB3Model.FK_HOPDONGMUAHANG_NHACUNGCAP">
+            <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
+            <End Role="HOPDONGMUAHANG" EntitySet="HOPDONGMUAHANGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOPDONGMUAHANG_SANPHAM" Association="TMDT_DB3Model.FK_HOPDONGMUAHANG_SANPHAM">
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+            <End Role="HOPDONGMUAHANG" EntitySet="HOPDONGMUAHANGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SANPHAM_LOAISANPHAM" Association="TMDT_DB3Model.FK_SANPHAM_LOAISANPHAM">
+            <End Role="LOAISANPHAM" EntitySet="LOAISANPHAMs" />
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_THANHVIEN_LOAITHANHVIEN" Association="TMDT_DB3Model.FK_THANHVIEN_LOAITHANHVIEN">
+            <End Role="LOAITHANHVIEN" EntitySet="LOAITHANHVIENs" />
+            <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SANPHAM_NHASANXUAT" Association="TMDT_DB3Model.FK_SANPHAM_NHASANXUAT">
+            <End Role="NHASANXUAT" EntitySet="NHASANXUATs" />
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_THANHTOANONLINE_THANHVIEN" Association="TMDT_DB3Model.FK_THANHTOANONLINE_THANHVIEN">
+            <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+            <End Role="THANHTOANONLINE" EntitySet="THANHTOANONLINEs" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="API">
           <Key>
             <PropertyRef Name="MA" />
@@ -502,21 +581,21 @@
           <Property Name="NGAYBATDAU" Type="DateTime" Precision="0" />
           <Property Name="NGAYKETTHUC" Type="DateTime" Precision="0" />
           <Property Name="GIA" Type="Int32" />
-          <NavigationProperty Name="NHACUNGCAP1" Relationship="Self.FK_BANGGHIDAUGIA_NHACUNGCAP" FromRole="BANGGHIDAUGIA" ToRole="NHACUNGCAP" />
-          <NavigationProperty Name="SANPHAM1" Relationship="Self.FK_BANGGHIDAUGIA_SANPHAM" FromRole="BANGGHIDAUGIA" ToRole="SANPHAM" />
+          <NavigationProperty Name="NHACUNGCAP1" Relationship="TMDT_DB3Model.FK_BANGGHIDAUGIA_NHACUNGCAP" FromRole="BANGGHIDAUGIA" ToRole="NHACUNGCAP" />
+          <NavigationProperty Name="SANPHAM1" Relationship="TMDT_DB3Model.FK_BANGGHIDAUGIA_SANPHAM" FromRole="BANGGHIDAUGIA" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="CHITIETDONHANG">
           <Key>
             <PropertyRef Name="DONHANG" />
             <PropertyRef Name="SANPHAM" />
           </Key>
-          <Property Name="DONHANG" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SANPHAM" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DONHANG" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="SANPHAM" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
           <Property Name="SOLUONG" Type="Int32" />
           <Property Name="THANHTIEN" Type="Double" />
           <Property Name="DAXOA" Type="Boolean" />
-          <NavigationProperty Name="DONHANG1" Relationship="Self.FK_CHITIETDONHANG_DONHANG" FromRole="CHITIETDONHANG" ToRole="DONHANG" />
-          <NavigationProperty Name="SANPHAM1" Relationship="Self.FK_CHITIETDONHANG_SANPHAM" FromRole="CHITIETDONHANG" ToRole="SANPHAM" />
+          <NavigationProperty Name="DONHANG1" Relationship="TMDT_DB3Model.FK_CHITIETDONHANG_DONHANG" FromRole="CHITIETDONHANG" ToRole="DONHANG" />
+          <NavigationProperty Name="SANPHAM1" Relationship="TMDT_DB3Model.FK_CHITIETDONHANG_SANPHAM" FromRole="CHITIETDONHANG" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="CHITIETHOPDONGBANHANG">
           <Key>
@@ -526,7 +605,7 @@
           <Property Name="MAHOPDONG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="MASANPHAM" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
           <Property Name="DAXOA" Type="Boolean" />
-          <NavigationProperty Name="SANPHAM" Relationship="Self.FK_CHITIETHOPDONGBANHANG_SANPHAM" FromRole="CHITIETHOPDONGBANHANG" ToRole="SANPHAM" />
+          <NavigationProperty Name="SANPHAM" Relationship="TMDT_DB3Model.FK_CHITIETHOPDONGBANHANG_SANPHAM" FromRole="CHITIETHOPDONGBANHANG" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="CHITIETHOPDONGMUAHANG">
           <Key>
@@ -536,14 +615,14 @@
           <Property Name="MAHOPDONG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="MASANPHAM" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
           <Property Name="DAXOA" Type="Boolean" />
-          <NavigationProperty Name="HOPDONGMUAHANG" Relationship="Self.FK_CHITIETHOPDONGMUAHANG_HOPDONGMUAHANG" FromRole="CHITIETHOPDONGMUAHANG" ToRole="HOPDONGMUAHANG" />
-          <NavigationProperty Name="SANPHAM" Relationship="Self.FK_CHITIETHOPDONGMUAHANG_SANPHAM" FromRole="CHITIETHOPDONGMUAHANG" ToRole="SANPHAM" />
+          <NavigationProperty Name="HOPDONGMUAHANG" Relationship="TMDT_DB3Model.FK_CHITIETHOPDONGMUAHANG_HOPDONGMUAHANG" FromRole="CHITIETHOPDONGMUAHANG" ToRole="HOPDONGMUAHANG" />
+          <NavigationProperty Name="SANPHAM" Relationship="TMDT_DB3Model.FK_CHITIETHOPDONGMUAHANG_SANPHAM" FromRole="CHITIETHOPDONGMUAHANG" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="DONHANG">
           <Key>
             <PropertyRef Name="MA" />
           </Key>
-          <Property Name="MA" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MA" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
           <Property Name="MATV" Type="Int32" />
           <Property Name="TONGTIEN" Type="Double" />
           <Property Name="NGAYDATHANG" Type="DateTime" Precision="0" />
@@ -553,15 +632,15 @@
           <Property Name="DIENTHOAINGUOINHAN" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="TRANGTHAI" Type="Int32" />
           <Property Name="DAXOA" Type="Boolean" />
-          <NavigationProperty Name="CHITIETDONHANGs" Relationship="Self.FK_CHITIETDONHANG_DONHANG" FromRole="DONHANG" ToRole="CHITIETDONHANG" />
-          <NavigationProperty Name="THANHVIEN" Relationship="Self.FK_DONHANG_THANHVIEN" FromRole="DONHANG" ToRole="THANHVIEN" />
-          <NavigationProperty Name="TRANGTHAIDONHANG" Relationship="Self.FK_DONHANG_TRANGTHAIDONHANG" FromRole="DONHANG" ToRole="TRANGTHAIDONHANG" />
+          <NavigationProperty Name="CHITIETDONHANGs" Relationship="TMDT_DB3Model.FK_CHITIETDONHANG_DONHANG" FromRole="DONHANG" ToRole="CHITIETDONHANG" />
+          <NavigationProperty Name="THANHVIEN" Relationship="TMDT_DB3Model.FK_DONHANG_THANHVIEN" FromRole="DONHANG" ToRole="THANHVIEN" />
+          <NavigationProperty Name="TRANGTHAIDONHANG" Relationship="TMDT_DB3Model.FK_DONHANG_TRANGTHAIDONHANG" FromRole="DONHANG" ToRole="TRANGTHAIDONHANG" />
         </EntityType>
         <EntityType Name="HOPDONGBANHANG">
           <Key>
             <PropertyRef Name="MAHOPDONG" />
           </Key>
-          <Property Name="MAHOPDONG" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAHOPDONG" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
           <Property Name="THANHVIEN" Type="Int32" />
           <Property Name="SANPHAM" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
           <Property Name="SOLUONGTONKHOTOITHIEU" Type="Int32" />
@@ -577,7 +656,7 @@
           <Key>
             <PropertyRef Name="MAHOPDONG" />
           </Key>
-          <Property Name="MAHOPDONG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAHOPDONG" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="NHACUNGCAP" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="SANPHAM" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
           <Property Name="SOLUONGTONKHOTOITHIEU" Type="Int32" />
@@ -588,9 +667,9 @@
           <Property Name="SOLUONGGIAOHANG" Type="Int32" />
           <Property Name="LINKWEBAPI" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="DAXOA" Type="Boolean" />
-          <NavigationProperty Name="CHITIETHOPDONGMUAHANGs" Relationship="Self.FK_CHITIETHOPDONGMUAHANG_HOPDONGMUAHANG" FromRole="HOPDONGMUAHANG" ToRole="CHITIETHOPDONGMUAHANG" />
-          <NavigationProperty Name="NHACUNGCAP1" Relationship="Self.FK_HOPDONGMUAHANG_NHACUNGCAP" FromRole="HOPDONGMUAHANG" ToRole="NHACUNGCAP" />
-          <NavigationProperty Name="SANPHAM1" Relationship="Self.FK_HOPDONGMUAHANG_SANPHAM" FromRole="HOPDONGMUAHANG" ToRole="SANPHAM" />
+          <NavigationProperty Name="CHITIETHOPDONGMUAHANGs" Relationship="TMDT_DB3Model.FK_CHITIETHOPDONGMUAHANG_HOPDONGMUAHANG" FromRole="HOPDONGMUAHANG" ToRole="CHITIETHOPDONGMUAHANG" />
+          <NavigationProperty Name="NHACUNGCAP1" Relationship="TMDT_DB3Model.FK_HOPDONGMUAHANG_NHACUNGCAP" FromRole="HOPDONGMUAHANG" ToRole="NHACUNGCAP" />
+          <NavigationProperty Name="SANPHAM1" Relationship="TMDT_DB3Model.FK_HOPDONGMUAHANG_SANPHAM" FromRole="HOPDONGMUAHANG" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="HOTROONLINE">
           <Key>
@@ -619,7 +698,7 @@
           <Property Name="TEN" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="DAXOA" Type="Boolean" />
           <Property Name="SANPHAMBAN" Type="Boolean" />
-          <NavigationProperty Name="SANPHAMs" Relationship="Self.FK_SANPHAM_LOAISANPHAM" FromRole="LOAISANPHAM" ToRole="SANPHAM" />
+          <NavigationProperty Name="SANPHAMs" Relationship="TMDT_DB3Model.FK_SANPHAM_LOAISANPHAM" FromRole="LOAISANPHAM" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="LOAITHANHVIEN">
           <Key>
@@ -628,13 +707,13 @@
           <Property Name="LoaiTV" Type="Int32" Nullable="false" />
           <Property Name="TENLOAI" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="DAXOA" Type="Boolean" />
-          <NavigationProperty Name="THANHVIENs" Relationship="Self.FK_THANHVIEN_LOAITHANHVIEN" FromRole="LOAITHANHVIEN" ToRole="THANHVIEN" />
+          <NavigationProperty Name="THANHVIENs" Relationship="TMDT_DB3Model.FK_THANHVIEN_LOAITHANHVIEN" FromRole="LOAITHANHVIEN" ToRole="THANHVIEN" />
         </EntityType>
         <EntityType Name="NHACUNGCAP">
           <Key>
             <PropertyRef Name="MA" />
           </Key>
-          <Property Name="MA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MA" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="TENDANGNHAP" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="MATKHAU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TEN" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
@@ -647,8 +726,8 @@
           <Property Name="callback" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="DADANGNHAP" Type="Boolean" />
           <Property Name="DAXOA" Type="Boolean" />
-          <NavigationProperty Name="BANGGHIDAUGIAs" Relationship="Self.FK_BANGGHIDAUGIA_NHACUNGCAP" FromRole="NHACUNGCAP" ToRole="BANGGHIDAUGIA" />
-          <NavigationProperty Name="HOPDONGMUAHANGs" Relationship="Self.FK_HOPDONGMUAHANG_NHACUNGCAP" FromRole="NHACUNGCAP" ToRole="HOPDONGMUAHANG" />
+          <NavigationProperty Name="BANGGHIDAUGIAs" Relationship="TMDT_DB3Model.FK_BANGGHIDAUGIA_NHACUNGCAP" FromRole="NHACUNGCAP" ToRole="BANGGHIDAUGIA" />
+          <NavigationProperty Name="HOPDONGMUAHANGs" Relationship="TMDT_DB3Model.FK_HOPDONGMUAHANG_NHACUNGCAP" FromRole="NHACUNGCAP" ToRole="HOPDONGMUAHANG" />
         </EntityType>
         <EntityType Name="NHASANXUAT">
           <Key>
@@ -657,13 +736,13 @@
           <Property Name="MA" Type="Int32" Nullable="false" />
           <Property Name="TEN" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="DAXOA" Type="Boolean" />
-          <NavigationProperty Name="SANPHAMs" Relationship="Self.FK_SANPHAM_NHASANXUAT" FromRole="NHASANXUAT" ToRole="SANPHAM" />
+          <NavigationProperty Name="SANPHAMs" Relationship="TMDT_DB3Model.FK_SANPHAM_NHASANXUAT" FromRole="NHASANXUAT" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="SANPHAM">
           <Key>
             <PropertyRef Name="MA" />
           </Key>
-          <Property Name="MA" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MA" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
           <Property Name="TEN" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="DONGIAMUA" Type="Double" />
           <Property Name="DONGIABAN" Type="Double" />
@@ -678,13 +757,13 @@
           <Property Name="SANPHAMBAN" Type="Boolean" />
           <Property Name="MAKHUYENMAI" Type="Int32" />
           <Property Name="DAUGIA" Type="Boolean" />
-          <NavigationProperty Name="BANGGHIDAUGIAs" Relationship="Self.FK_BANGGHIDAUGIA_SANPHAM" FromRole="SANPHAM" ToRole="BANGGHIDAUGIA" />
-          <NavigationProperty Name="CHITIETDONHANGs" Relationship="Self.FK_CHITIETDONHANG_SANPHAM" FromRole="SANPHAM" ToRole="CHITIETDONHANG" />
-          <NavigationProperty Name="CHITIETHOPDONGBANHANGs" Relationship="Self.FK_CHITIETHOPDONGBANHANG_SANPHAM" FromRole="SANPHAM" ToRole="CHITIETHOPDONGBANHANG" />
-          <NavigationProperty Name="CHITIETHOPDONGMUAHANGs" Relationship="Self.FK_CHITIETHOPDONGMUAHANG_SANPHAM" FromRole="SANPHAM" ToRole="CHITIETHOPDONGMUAHANG" />
-          <NavigationProperty Name="HOPDONGMUAHANGs" Relationship="Self.FK_HOPDONGMUAHANG_SANPHAM" FromRole="SANPHAM" ToRole="HOPDONGMUAHANG" />
-          <NavigationProperty Name="LOAISANPHAM1" Relationship="Self.FK_SANPHAM_LOAISANPHAM" FromRole="SANPHAM" ToRole="LOAISANPHAM" />
-          <NavigationProperty Name="NHASANXUAT1" Relationship="Self.FK_SANPHAM_NHASANXUAT" FromRole="SANPHAM" ToRole="NHASANXUAT" />
+          <NavigationProperty Name="BANGGHIDAUGIAs" Relationship="TMDT_DB3Model.FK_BANGGHIDAUGIA_SANPHAM" FromRole="SANPHAM" ToRole="BANGGHIDAUGIA" />
+          <NavigationProperty Name="CHITIETDONHANGs" Relationship="TMDT_DB3Model.FK_CHITIETDONHANG_SANPHAM" FromRole="SANPHAM" ToRole="CHITIETDONHANG" />
+          <NavigationProperty Name="CHITIETHOPDONGBANHANGs" Relationship="TMDT_DB3Model.FK_CHITIETHOPDONGBANHANG_SANPHAM" FromRole="SANPHAM" ToRole="CHITIETHOPDONGBANHANG" />
+          <NavigationProperty Name="CHITIETHOPDONGMUAHANGs" Relationship="TMDT_DB3Model.FK_CHITIETHOPDONGMUAHANG_SANPHAM" FromRole="SANPHAM" ToRole="CHITIETHOPDONGMUAHANG" />
+          <NavigationProperty Name="HOPDONGMUAHANGs" Relationship="TMDT_DB3Model.FK_HOPDONGMUAHANG_SANPHAM" FromRole="SANPHAM" ToRole="HOPDONGMUAHANG" />
+          <NavigationProperty Name="LOAISANPHAM1" Relationship="TMDT_DB3Model.FK_SANPHAM_LOAISANPHAM" FromRole="SANPHAM" ToRole="LOAISANPHAM" />
+          <NavigationProperty Name="NHASANXUAT1" Relationship="TMDT_DB3Model.FK_SANPHAM_NHASANXUAT" FromRole="SANPHAM" ToRole="NHASANXUAT" />
         </EntityType>
         <EntityType Name="THANHTOANONLINE">
           <Key>
@@ -694,7 +773,7 @@
           <Property Name="EMAIL" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="MATHANHVIEN" Type="Int32" />
           <Property Name="DAXOA" Type="Boolean" />
-          <NavigationProperty Name="THANHVIEN" Relationship="Self.FK_THANHTOANONLINE_THANHVIEN" FromRole="THANHTOANONLINE" ToRole="THANHVIEN" />
+          <NavigationProperty Name="THANHVIEN" Relationship="TMDT_DB3Model.FK_THANHTOANONLINE_THANHVIEN" FromRole="THANHTOANONLINE" ToRole="THANHVIEN" />
         </EntityType>
         <EntityType Name="THANHVIEN">
           <Key>
@@ -713,9 +792,9 @@
           <Property Name="DADANGNHAP" Type="Boolean" />
           <Property Name="MAKICHHOAT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DAXOA" Type="Boolean" />
-          <NavigationProperty Name="DONHANGs" Relationship="Self.FK_DONHANG_THANHVIEN" FromRole="THANHVIEN" ToRole="DONHANG" />
-          <NavigationProperty Name="LOAITHANHVIEN1" Relationship="Self.FK_THANHVIEN_LOAITHANHVIEN" FromRole="THANHVIEN" ToRole="LOAITHANHVIEN" />
-          <NavigationProperty Name="THANHTOANONLINEs" Relationship="Self.FK_THANHTOANONLINE_THANHVIEN" FromRole="THANHVIEN" ToRole="THANHTOANONLINE" />
+          <NavigationProperty Name="DONHANGs" Relationship="TMDT_DB3Model.FK_DONHANG_THANHVIEN" FromRole="THANHVIEN" ToRole="DONHANG" />
+          <NavigationProperty Name="LOAITHANHVIEN1" Relationship="TMDT_DB3Model.FK_THANHVIEN_LOAITHANHVIEN" FromRole="THANHVIEN" ToRole="LOAITHANHVIEN" />
+          <NavigationProperty Name="THANHTOANONLINEs" Relationship="TMDT_DB3Model.FK_THANHTOANONLINE_THANHVIEN" FromRole="THANHVIEN" ToRole="THANHTOANONLINE" />
         </EntityType>
         <EntityType Name="TRANGTHAIDONHANG">
           <Key>
@@ -724,11 +803,11 @@
           <Property Name="MA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TINHTRANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DAXOA" Type="Boolean" />
-          <NavigationProperty Name="DONHANGs" Relationship="Self.FK_DONHANG_TRANGTHAIDONHANG" FromRole="TRANGTHAIDONHANG" ToRole="DONHANG" />
+          <NavigationProperty Name="DONHANGs" Relationship="TMDT_DB3Model.FK_DONHANG_TRANGTHAIDONHANG" FromRole="TRANGTHAIDONHANG" ToRole="DONHANG" />
         </EntityType>
         <Association Name="FK_BANGGHIDAUGIA_NHACUNGCAP">
-          <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="0..1" />
-          <End Role="BANGGHIDAUGIA" Type="Self.BANGGHIDAUGIA" Multiplicity="*" />
+          <End Type="TMDT_DB3Model.NHACUNGCAP" Role="NHACUNGCAP" Multiplicity="0..1" />
+          <End Type="TMDT_DB3Model.BANGGHIDAUGIA" Role="BANGGHIDAUGIA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NHACUNGCAP">
               <PropertyRef Name="MA" />
@@ -739,8 +818,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BANGGHIDAUGIA_SANPHAM">
-          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="0..1" />
-          <End Role="BANGGHIDAUGIA" Type="Self.BANGGHIDAUGIA" Multiplicity="*" />
+          <End Type="TMDT_DB3Model.SANPHAM" Role="SANPHAM" Multiplicity="0..1" />
+          <End Type="TMDT_DB3Model.BANGGHIDAUGIA" Role="BANGGHIDAUGIA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SANPHAM">
               <PropertyRef Name="MA" />
@@ -751,8 +830,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CHITIETDONHANG_DONHANG">
-          <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="1" />
-          <End Role="CHITIETDONHANG" Type="Self.CHITIETDONHANG" Multiplicity="*" />
+          <End Type="TMDT_DB3Model.DONHANG" Role="DONHANG" Multiplicity="1" />
+          <End Type="TMDT_DB3Model.CHITIETDONHANG" Role="CHITIETDONHANG" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DONHANG">
               <PropertyRef Name="MA" />
@@ -763,8 +842,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CHITIETDONHANG_SANPHAM">
-          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
-          <End Role="CHITIETDONHANG" Type="Self.CHITIETDONHANG" Multiplicity="*" />
+          <End Type="TMDT_DB3Model.SANPHAM" Role="SANPHAM" Multiplicity="1" />
+          <End Type="TMDT_DB3Model.CHITIETDONHANG" Role="CHITIETDONHANG" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SANPHAM">
               <PropertyRef Name="MA" />
@@ -775,8 +854,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CHITIETHOPDONGBANHANG_SANPHAM">
-          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="0..1" />
-          <End Role="CHITIETHOPDONGBANHANG" Type="Self.CHITIETHOPDONGBANHANG" Multiplicity="*" />
+          <End Type="TMDT_DB3Model.SANPHAM" Role="SANPHAM" Multiplicity="0..1" />
+          <End Type="TMDT_DB3Model.CHITIETHOPDONGBANHANG" Role="CHITIETHOPDONGBANHANG" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SANPHAM">
               <PropertyRef Name="MA" />
@@ -787,8 +866,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CHITIETHOPDONGMUAHANG_HOPDONGMUAHANG">
-          <End Role="HOPDONGMUAHANG" Type="Self.HOPDONGMUAHANG" Multiplicity="0..1" />
-          <End Role="CHITIETHOPDONGMUAHANG" Type="Self.CHITIETHOPDONGMUAHANG" Multiplicity="*" />
+          <End Type="TMDT_DB3Model.HOPDONGMUAHANG" Role="HOPDONGMUAHANG" Multiplicity="0..1" />
+          <End Type="TMDT_DB3Model.CHITIETHOPDONGMUAHANG" Role="CHITIETHOPDONGMUAHANG" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HOPDONGMUAHANG">
               <PropertyRef Name="MAHOPDONG" />
@@ -799,8 +878,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CHITIETHOPDONGMUAHANG_SANPHAM">
-          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="0..1" />
-          <End Role="CHITIETHOPDONGMUAHANG" Type="Self.CHITIETHOPDONGMUAHANG" Multiplicity="*" />
+          <End Type="TMDT_DB3Model.SANPHAM" Role="SANPHAM" Multiplicity="0..1" />
+          <End Type="TMDT_DB3Model.CHITIETHOPDONGMUAHANG" Role="CHITIETHOPDONGMUAHANG" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SANPHAM">
               <PropertyRef Name="MA" />
@@ -811,8 +890,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DONHANG_THANHVIEN">
-          <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="0..1" />
-          <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="*" />
+          <End Type="TMDT_DB3Model.THANHVIEN" Role="THANHVIEN" Multiplicity="0..1" />
+          <End Type="TMDT_DB3Model.DONHANG" Role="DONHANG" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="THANHVIEN">
               <PropertyRef Name="MA" />
@@ -823,8 +902,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DONHANG_TRANGTHAIDONHANG">
-          <End Role="TRANGTHAIDONHANG" Type="Self.TRANGTHAIDONHANG" Multiplicity="0..1" />
-          <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="*" />
+          <End Type="TMDT_DB3Model.TRANGTHAIDONHANG" Role="TRANGTHAIDONHANG" Multiplicity="0..1" />
+          <End Type="TMDT_DB3Model.DONHANG" Role="DONHANG" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TRANGTHAIDONHANG">
               <PropertyRef Name="MA" />
@@ -835,8 +914,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_HOPDONGMUAHANG_NHACUNGCAP">
-          <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="0..1" />
-          <End Role="HOPDONGMUAHANG" Type="Self.HOPDONGMUAHANG" Multiplicity="*" />
+          <End Type="TMDT_DB3Model.NHACUNGCAP" Role="NHACUNGCAP" Multiplicity="0..1" />
+          <End Type="TMDT_DB3Model.HOPDONGMUAHANG" Role="HOPDONGMUAHANG" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NHACUNGCAP">
               <PropertyRef Name="MA" />
@@ -847,8 +926,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_HOPDONGMUAHANG_SANPHAM">
-          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="0..1" />
-          <End Role="HOPDONGMUAHANG" Type="Self.HOPDONGMUAHANG" Multiplicity="*" />
+          <End Type="TMDT_DB3Model.SANPHAM" Role="SANPHAM" Multiplicity="0..1" />
+          <End Type="TMDT_DB3Model.HOPDONGMUAHANG" Role="HOPDONGMUAHANG" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SANPHAM">
               <PropertyRef Name="MA" />
@@ -859,8 +938,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SANPHAM_LOAISANPHAM">
-          <End Role="LOAISANPHAM" Type="Self.LOAISANPHAM" Multiplicity="0..1" />
-          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+          <End Type="TMDT_DB3Model.LOAISANPHAM" Role="LOAISANPHAM" Multiplicity="0..1" />
+          <End Type="TMDT_DB3Model.SANPHAM" Role="SANPHAM" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LOAISANPHAM">
               <PropertyRef Name="MA" />
@@ -871,8 +950,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_THANHVIEN_LOAITHANHVIEN">
-          <End Role="LOAITHANHVIEN" Type="Self.LOAITHANHVIEN" Multiplicity="0..1" />
-          <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="*" />
+          <End Type="TMDT_DB3Model.LOAITHANHVIEN" Role="LOAITHANHVIEN" Multiplicity="0..1" />
+          <End Type="TMDT_DB3Model.THANHVIEN" Role="THANHVIEN" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LOAITHANHVIEN">
               <PropertyRef Name="LoaiTV" />
@@ -883,8 +962,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SANPHAM_NHASANXUAT">
-          <End Role="NHASANXUAT" Type="Self.NHASANXUAT" Multiplicity="0..1" />
-          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+          <End Type="TMDT_DB3Model.NHASANXUAT" Role="NHASANXUAT" Multiplicity="0..1" />
+          <End Type="TMDT_DB3Model.SANPHAM" Role="SANPHAM" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NHASANXUAT">
               <PropertyRef Name="MA" />
@@ -895,8 +974,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_THANHTOANONLINE_THANHVIEN">
-          <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="0..1" />
-          <End Role="THANHTOANONLINE" Type="Self.THANHTOANONLINE" Multiplicity="*" />
+          <End Type="TMDT_DB3Model.THANHVIEN" Role="THANHVIEN" Multiplicity="0..1" />
+          <End Type="TMDT_DB3Model.THANHTOANONLINE" Role="THANHTOANONLINE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="THANHVIEN">
               <PropertyRef Name="MA" />
@@ -906,86 +985,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TMDT_DB3Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="APIs" EntityType="Self.API" />
-          <EntitySet Name="BANGGHIDAUGIAs" EntityType="Self.BANGGHIDAUGIA" />
-          <EntitySet Name="CHITIETDONHANGs" EntityType="Self.CHITIETDONHANG" />
-          <EntitySet Name="CHITIETHOPDONGBANHANGs" EntityType="Self.CHITIETHOPDONGBANHANG" />
-          <EntitySet Name="CHITIETHOPDONGMUAHANGs" EntityType="Self.CHITIETHOPDONGMUAHANG" />
-          <EntitySet Name="DONHANGs" EntityType="Self.DONHANG" />
-          <EntitySet Name="HOPDONGBANHANGs" EntityType="Self.HOPDONGBANHANG" />
-          <EntitySet Name="HOPDONGMUAHANGs" EntityType="Self.HOPDONGMUAHANG" />
-          <EntitySet Name="HOTROONLINEs" EntityType="Self.HOTROONLINE" />
-          <EntitySet Name="KHUYENMAIs" EntityType="Self.KHUYENMAI" />
-          <EntitySet Name="LOAISANPHAMs" EntityType="Self.LOAISANPHAM" />
-          <EntitySet Name="LOAITHANHVIENs" EntityType="Self.LOAITHANHVIEN" />
-          <EntitySet Name="NHACUNGCAPs" EntityType="Self.NHACUNGCAP" />
-          <EntitySet Name="NHASANXUATs" EntityType="Self.NHASANXUAT" />
-          <EntitySet Name="SANPHAMs" EntityType="Self.SANPHAM" />
-          <EntitySet Name="THANHTOANONLINEs" EntityType="Self.THANHTOANONLINE" />
-          <EntitySet Name="THANHVIENs" EntityType="Self.THANHVIEN" />
-          <EntitySet Name="TRANGTHAIDONHANGs" EntityType="Self.TRANGTHAIDONHANG" />
-          <AssociationSet Name="FK_BANGGHIDAUGIA_NHACUNGCAP" Association="Self.FK_BANGGHIDAUGIA_NHACUNGCAP">
-            <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
-            <End Role="BANGGHIDAUGIA" EntitySet="BANGGHIDAUGIAs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BANGGHIDAUGIA_SANPHAM" Association="Self.FK_BANGGHIDAUGIA_SANPHAM">
-            <End Role="SANPHAM" EntitySet="SANPHAMs" />
-            <End Role="BANGGHIDAUGIA" EntitySet="BANGGHIDAUGIAs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CHITIETDONHANG_DONHANG" Association="Self.FK_CHITIETDONHANG_DONHANG">
-            <End Role="DONHANG" EntitySet="DONHANGs" />
-            <End Role="CHITIETDONHANG" EntitySet="CHITIETDONHANGs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CHITIETDONHANG_SANPHAM" Association="Self.FK_CHITIETDONHANG_SANPHAM">
-            <End Role="SANPHAM" EntitySet="SANPHAMs" />
-            <End Role="CHITIETDONHANG" EntitySet="CHITIETDONHANGs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CHITIETHOPDONGBANHANG_SANPHAM" Association="Self.FK_CHITIETHOPDONGBANHANG_SANPHAM">
-            <End Role="SANPHAM" EntitySet="SANPHAMs" />
-            <End Role="CHITIETHOPDONGBANHANG" EntitySet="CHITIETHOPDONGBANHANGs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CHITIETHOPDONGMUAHANG_HOPDONGMUAHANG" Association="Self.FK_CHITIETHOPDONGMUAHANG_HOPDONGMUAHANG">
-            <End Role="HOPDONGMUAHANG" EntitySet="HOPDONGMUAHANGs" />
-            <End Role="CHITIETHOPDONGMUAHANG" EntitySet="CHITIETHOPDONGMUAHANGs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CHITIETHOPDONGMUAHANG_SANPHAM" Association="Self.FK_CHITIETHOPDONGMUAHANG_SANPHAM">
-            <End Role="SANPHAM" EntitySet="SANPHAMs" />
-            <End Role="CHITIETHOPDONGMUAHANG" EntitySet="CHITIETHOPDONGMUAHANGs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DONHANG_THANHVIEN" Association="Self.FK_DONHANG_THANHVIEN">
-            <End Role="THANHVIEN" EntitySet="THANHVIENs" />
-            <End Role="DONHANG" EntitySet="DONHANGs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DONHANG_TRANGTHAIDONHANG" Association="Self.FK_DONHANG_TRANGTHAIDONHANG">
-            <End Role="TRANGTHAIDONHANG" EntitySet="TRANGTHAIDONHANGs" />
-            <End Role="DONHANG" EntitySet="DONHANGs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_HOPDONGMUAHANG_NHACUNGCAP" Association="Self.FK_HOPDONGMUAHANG_NHACUNGCAP">
-            <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
-            <End Role="HOPDONGMUAHANG" EntitySet="HOPDONGMUAHANGs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_HOPDONGMUAHANG_SANPHAM" Association="Self.FK_HOPDONGMUAHANG_SANPHAM">
-            <End Role="SANPHAM" EntitySet="SANPHAMs" />
-            <End Role="HOPDONGMUAHANG" EntitySet="HOPDONGMUAHANGs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SANPHAM_LOAISANPHAM" Association="Self.FK_SANPHAM_LOAISANPHAM">
-            <End Role="LOAISANPHAM" EntitySet="LOAISANPHAMs" />
-            <End Role="SANPHAM" EntitySet="SANPHAMs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_THANHVIEN_LOAITHANHVIEN" Association="Self.FK_THANHVIEN_LOAITHANHVIEN">
-            <End Role="LOAITHANHVIEN" EntitySet="LOAITHANHVIENs" />
-            <End Role="THANHVIEN" EntitySet="THANHVIENs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SANPHAM_NHASANXUAT" Association="Self.FK_SANPHAM_NHASANXUAT">
-            <End Role="NHASANXUAT" EntitySet="NHASANXUATs" />
-            <End Role="SANPHAM" EntitySet="SANPHAMs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_THANHTOANONLINE_THANHVIEN" Association="Self.FK_THANHTOANONLINE_THANHVIEN">
-            <End Role="THANHVIEN" EntitySet="THANHVIENs" />
-            <End Role="THANHTOANONLINE" EntitySet="THANHTOANONLINEs" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -995,230 +994,230 @@
           <EntitySetMapping Name="APIs">
             <EntityTypeMapping TypeName="TMDT_DB3Model.API">
               <MappingFragment StoreEntitySet="API">
-                <ScalarProperty Name="MA" ColumnName="MA" />
-                <ScalarProperty Name="LINK" ColumnName="LINK" />
                 <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+                <ScalarProperty Name="LINK" ColumnName="LINK" />
+                <ScalarProperty Name="MA" ColumnName="MA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BANGGHIDAUGIAs">
             <EntityTypeMapping TypeName="TMDT_DB3Model.BANGGHIDAUGIA">
               <MappingFragment StoreEntitySet="BANGGHIDAUGIA">
-                <ScalarProperty Name="MA" ColumnName="MA" />
-                <ScalarProperty Name="NHACUNGCAP" ColumnName="NHACUNGCAP" />
-                <ScalarProperty Name="SANPHAM" ColumnName="SANPHAM" />
-                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
-                <ScalarProperty Name="NGAYBATDAU" ColumnName="NGAYBATDAU" />
-                <ScalarProperty Name="NGAYKETTHUC" ColumnName="NGAYKETTHUC" />
                 <ScalarProperty Name="GIA" ColumnName="GIA" />
+                <ScalarProperty Name="NGAYKETTHUC" ColumnName="NGAYKETTHUC" />
+                <ScalarProperty Name="NGAYBATDAU" ColumnName="NGAYBATDAU" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="SANPHAM" ColumnName="SANPHAM" />
+                <ScalarProperty Name="NHACUNGCAP" ColumnName="NHACUNGCAP" />
+                <ScalarProperty Name="MA" ColumnName="MA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CHITIETDONHANGs">
             <EntityTypeMapping TypeName="TMDT_DB3Model.CHITIETDONHANG">
               <MappingFragment StoreEntitySet="CHITIETDONHANG">
-                <ScalarProperty Name="DONHANG" ColumnName="DONHANG" />
-                <ScalarProperty Name="SANPHAM" ColumnName="SANPHAM" />
-                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
-                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
                 <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="SANPHAM" ColumnName="SANPHAM" />
+                <ScalarProperty Name="DONHANG" ColumnName="DONHANG" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CHITIETHOPDONGBANHANGs">
             <EntityTypeMapping TypeName="TMDT_DB3Model.CHITIETHOPDONGBANHANG">
               <MappingFragment StoreEntitySet="CHITIETHOPDONGBANHANG">
-                <ScalarProperty Name="MA" ColumnName="MA" />
-                <ScalarProperty Name="MAHOPDONG" ColumnName="MAHOPDONG" />
-                <ScalarProperty Name="MASANPHAM" ColumnName="MASANPHAM" />
                 <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+                <ScalarProperty Name="MASANPHAM" ColumnName="MASANPHAM" />
+                <ScalarProperty Name="MAHOPDONG" ColumnName="MAHOPDONG" />
+                <ScalarProperty Name="MA" ColumnName="MA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CHITIETHOPDONGMUAHANGs">
             <EntityTypeMapping TypeName="TMDT_DB3Model.CHITIETHOPDONGMUAHANG">
               <MappingFragment StoreEntitySet="CHITIETHOPDONGMUAHANG">
-                <ScalarProperty Name="MA" ColumnName="MA" />
-                <ScalarProperty Name="MAHOPDONG" ColumnName="MAHOPDONG" />
-                <ScalarProperty Name="MASANPHAM" ColumnName="MASANPHAM" />
                 <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+                <ScalarProperty Name="MASANPHAM" ColumnName="MASANPHAM" />
+                <ScalarProperty Name="MAHOPDONG" ColumnName="MAHOPDONG" />
+                <ScalarProperty Name="MA" ColumnName="MA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DONHANGs">
             <EntityTypeMapping TypeName="TMDT_DB3Model.DONHANG">
               <MappingFragment StoreEntitySet="DONHANG">
-                <ScalarProperty Name="MA" ColumnName="MA" />
-                <ScalarProperty Name="MATV" ColumnName="MATV" />
-                <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
-                <ScalarProperty Name="NGAYDATHANG" ColumnName="NGAYDATHANG" />
-                <ScalarProperty Name="NGAYNHANHANG" ColumnName="NGAYNHANHANG" />
-                <ScalarProperty Name="TENNGUOINHAN" ColumnName="TENNGUOINHAN" />
-                <ScalarProperty Name="DIACHINHAN" ColumnName="DIACHINHAN" />
-                <ScalarProperty Name="DIENTHOAINGUOINHAN" ColumnName="DIENTHOAINGUOINHAN" />
-                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
                 <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+                <ScalarProperty Name="DIENTHOAINGUOINHAN" ColumnName="DIENTHOAINGUOINHAN" />
+                <ScalarProperty Name="DIACHINHAN" ColumnName="DIACHINHAN" />
+                <ScalarProperty Name="TENNGUOINHAN" ColumnName="TENNGUOINHAN" />
+                <ScalarProperty Name="NGAYNHANHANG" ColumnName="NGAYNHANHANG" />
+                <ScalarProperty Name="NGAYDATHANG" ColumnName="NGAYDATHANG" />
+                <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+                <ScalarProperty Name="MATV" ColumnName="MATV" />
+                <ScalarProperty Name="MA" ColumnName="MA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HOPDONGBANHANGs">
             <EntityTypeMapping TypeName="TMDT_DB3Model.HOPDONGBANHANG">
               <MappingFragment StoreEntitySet="HOPDONGBANHANG">
-                <ScalarProperty Name="MAHOPDONG" ColumnName="MAHOPDONG" />
-                <ScalarProperty Name="THANHVIEN" ColumnName="THANHVIEN" />
-                <ScalarProperty Name="SANPHAM" ColumnName="SANPHAM" />
-                <ScalarProperty Name="SOLUONGTONKHOTOITHIEU" ColumnName="SOLUONGTONKHOTOITHIEU" />
-                <ScalarProperty Name="THOIGIANGIAOHANGCHAPNHAN" ColumnName="THOIGIANGIAOHANGCHAPNHAN" />
-                <ScalarProperty Name="THOIGIANKI" ColumnName="THOIGIANKI" />
-                <ScalarProperty Name="THOIGIANHOPTAC" ColumnName="THOIGIANHOPTAC" />
-                <ScalarProperty Name="THOIGIANCHUYENTIEN" ColumnName="THOIGIANCHUYENTIEN" />
-                <ScalarProperty Name="SOLUONGGIAOHANG" ColumnName="SOLUONGGIAOHANG" />
-                <ScalarProperty Name="LINKWEBAPI" ColumnName="LINKWEBAPI" />
                 <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+                <ScalarProperty Name="LINKWEBAPI" ColumnName="LINKWEBAPI" />
+                <ScalarProperty Name="SOLUONGGIAOHANG" ColumnName="SOLUONGGIAOHANG" />
+                <ScalarProperty Name="THOIGIANCHUYENTIEN" ColumnName="THOIGIANCHUYENTIEN" />
+                <ScalarProperty Name="THOIGIANHOPTAC" ColumnName="THOIGIANHOPTAC" />
+                <ScalarProperty Name="THOIGIANKI" ColumnName="THOIGIANKI" />
+                <ScalarProperty Name="THOIGIANGIAOHANGCHAPNHAN" ColumnName="THOIGIANGIAOHANGCHAPNHAN" />
+                <ScalarProperty Name="SOLUONGTONKHOTOITHIEU" ColumnName="SOLUONGTONKHOTOITHIEU" />
+                <ScalarProperty Name="SANPHAM" ColumnName="SANPHAM" />
+                <ScalarProperty Name="THANHVIEN" ColumnName="THANHVIEN" />
+                <ScalarProperty Name="MAHOPDONG" ColumnName="MAHOPDONG" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HOPDONGMUAHANGs">
             <EntityTypeMapping TypeName="TMDT_DB3Model.HOPDONGMUAHANG">
               <MappingFragment StoreEntitySet="HOPDONGMUAHANG">
-                <ScalarProperty Name="MAHOPDONG" ColumnName="MAHOPDONG" />
-                <ScalarProperty Name="NHACUNGCAP" ColumnName="NHACUNGCAP" />
-                <ScalarProperty Name="SANPHAM" ColumnName="SANPHAM" />
-                <ScalarProperty Name="SOLUONGTONKHOTOITHIEU" ColumnName="SOLUONGTONKHOTOITHIEU" />
-                <ScalarProperty Name="THOIGIANGIAOHANGCHAPNHAN" ColumnName="THOIGIANGIAOHANGCHAPNHAN" />
-                <ScalarProperty Name="THOIGIANKI" ColumnName="THOIGIANKI" />
-                <ScalarProperty Name="THOIGIANHOPTAC" ColumnName="THOIGIANHOPTAC" />
-                <ScalarProperty Name="THOIGIANCHUYENTIEN" ColumnName="THOIGIANCHUYENTIEN" />
-                <ScalarProperty Name="SOLUONGGIAOHANG" ColumnName="SOLUONGGIAOHANG" />
-                <ScalarProperty Name="LINKWEBAPI" ColumnName="LINKWEBAPI" />
                 <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+                <ScalarProperty Name="LINKWEBAPI" ColumnName="LINKWEBAPI" />
+                <ScalarProperty Name="SOLUONGGIAOHANG" ColumnName="SOLUONGGIAOHANG" />
+                <ScalarProperty Name="THOIGIANCHUYENTIEN" ColumnName="THOIGIANCHUYENTIEN" />
+                <ScalarProperty Name="THOIGIANHOPTAC" ColumnName="THOIGIANHOPTAC" />
+                <ScalarProperty Name="THOIGIANKI" ColumnName="THOIGIANKI" />
+                <ScalarProperty Name="THOIGIANGIAOHANGCHAPNHAN" ColumnName="THOIGIANGIAOHANGCHAPNHAN" />
+                <ScalarProperty Name="SOLUONGTONKHOTOITHIEU" ColumnName="SOLUONGTONKHOTOITHIEU" />
+                <ScalarProperty Name="SANPHAM" ColumnName="SANPHAM" />
+                <ScalarProperty Name="NHACUNGCAP" ColumnName="NHACUNGCAP" />
+                <ScalarProperty Name="MAHOPDONG" ColumnName="MAHOPDONG" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HOTROONLINEs">
             <EntityTypeMapping TypeName="TMDT_DB3Model.HOTROONLINE">
               <MappingFragment StoreEntitySet="HOTROONLINE">
-                <ScalarProperty Name="MA" ColumnName="MA" />
-                <ScalarProperty Name="SKYPE" ColumnName="SKYPE" />
-                <ScalarProperty Name="TEN" ColumnName="TEN" />
                 <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+                <ScalarProperty Name="TEN" ColumnName="TEN" />
+                <ScalarProperty Name="SKYPE" ColumnName="SKYPE" />
+                <ScalarProperty Name="MA" ColumnName="MA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="KHUYENMAIs">
             <EntityTypeMapping TypeName="TMDT_DB3Model.KHUYENMAI">
               <MappingFragment StoreEntitySet="KHUYENMAI">
-                <ScalarProperty Name="MA" ColumnName="MA" />
-                <ScalarProperty Name="NGAYBATDAU" ColumnName="NGAYBATDAU" />
-                <ScalarProperty Name="NGAYKETTHUC" ColumnName="NGAYKETTHUC" />
-                <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
                 <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+                <ScalarProperty Name="NOIDUNG" ColumnName="NOIDUNG" />
+                <ScalarProperty Name="NGAYKETTHUC" ColumnName="NGAYKETTHUC" />
+                <ScalarProperty Name="NGAYBATDAU" ColumnName="NGAYBATDAU" />
+                <ScalarProperty Name="MA" ColumnName="MA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LOAISANPHAMs">
             <EntityTypeMapping TypeName="TMDT_DB3Model.LOAISANPHAM">
               <MappingFragment StoreEntitySet="LOAISANPHAM">
-                <ScalarProperty Name="MA" ColumnName="MA" />
-                <ScalarProperty Name="TEN" ColumnName="TEN" />
-                <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
                 <ScalarProperty Name="SANPHAMBAN" ColumnName="SANPHAMBAN" />
+                <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+                <ScalarProperty Name="TEN" ColumnName="TEN" />
+                <ScalarProperty Name="MA" ColumnName="MA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LOAITHANHVIENs">
             <EntityTypeMapping TypeName="TMDT_DB3Model.LOAITHANHVIEN">
               <MappingFragment StoreEntitySet="LOAITHANHVIEN">
-                <ScalarProperty Name="LoaiTV" ColumnName="LoaiTV" />
-                <ScalarProperty Name="TENLOAI" ColumnName="TENLOAI" />
                 <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+                <ScalarProperty Name="TENLOAI" ColumnName="TENLOAI" />
+                <ScalarProperty Name="LoaiTV" ColumnName="LoaiTV" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NHACUNGCAPs">
             <EntityTypeMapping TypeName="TMDT_DB3Model.NHACUNGCAP">
               <MappingFragment StoreEntitySet="NHACUNGCAP">
-                <ScalarProperty Name="MA" ColumnName="MA" />
-                <ScalarProperty Name="TENDANGNHAP" ColumnName="TENDANGNHAP" />
-                <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
-                <ScalarProperty Name="TEN" ColumnName="TEN" />
-                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
-                <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="supplier_key" ColumnName="supplier_key" />
-                <ScalarProperty Name="request_token" ColumnName="request_token" />
-                <ScalarProperty Name="verifier_token" ColumnName="verifier_token" />
-                <ScalarProperty Name="callback" ColumnName="callback" />
-                <ScalarProperty Name="DADANGNHAP" ColumnName="DADANGNHAP" />
                 <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+                <ScalarProperty Name="DADANGNHAP" ColumnName="DADANGNHAP" />
+                <ScalarProperty Name="callback" ColumnName="callback" />
+                <ScalarProperty Name="verifier_token" ColumnName="verifier_token" />
+                <ScalarProperty Name="request_token" ColumnName="request_token" />
+                <ScalarProperty Name="supplier_key" ColumnName="supplier_key" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="TEN" ColumnName="TEN" />
+                <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+                <ScalarProperty Name="TENDANGNHAP" ColumnName="TENDANGNHAP" />
+                <ScalarProperty Name="MA" ColumnName="MA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NHASANXUATs">
             <EntityTypeMapping TypeName="TMDT_DB3Model.NHASANXUAT">
               <MappingFragment StoreEntitySet="NHASANXUAT">
-                <ScalarProperty Name="MA" ColumnName="MA" />
-                <ScalarProperty Name="TEN" ColumnName="TEN" />
                 <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+                <ScalarProperty Name="TEN" ColumnName="TEN" />
+                <ScalarProperty Name="MA" ColumnName="MA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SANPHAMs">
             <EntityTypeMapping TypeName="TMDT_DB3Model.SANPHAM">
               <MappingFragment StoreEntitySet="SANPHAM">
-                <ScalarProperty Name="MA" ColumnName="MA" />
-                <ScalarProperty Name="TEN" ColumnName="TEN" />
-                <ScalarProperty Name="DONGIAMUA" ColumnName="DONGIAMUA" />
-                <ScalarProperty Name="DONGIABAN" ColumnName="DONGIABAN" />
-                <ScalarProperty Name="HINHANH" ColumnName="HINHANH" />
-                <ScalarProperty Name="MOTA" ColumnName="MOTA" />
-                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
-                <ScalarProperty Name="LOAISANPHAM" ColumnName="LOAISANPHAM" />
-                <ScalarProperty Name="SANPHAMMOI" ColumnName="SANPHAMMOI" />
-                <ScalarProperty Name="NHASANXUAT" ColumnName="NHASANXUAT" />
-                <ScalarProperty Name="SANPHAMBANCHAY" ColumnName="SANPHAMBANCHAY" />
-                <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
-                <ScalarProperty Name="SANPHAMBAN" ColumnName="SANPHAMBAN" />
-                <ScalarProperty Name="MAKHUYENMAI" ColumnName="MAKHUYENMAI" />
                 <ScalarProperty Name="DAUGIA" ColumnName="DAUGIA" />
+                <ScalarProperty Name="MAKHUYENMAI" ColumnName="MAKHUYENMAI" />
+                <ScalarProperty Name="SANPHAMBAN" ColumnName="SANPHAMBAN" />
+                <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+                <ScalarProperty Name="SANPHAMBANCHAY" ColumnName="SANPHAMBANCHAY" />
+                <ScalarProperty Name="NHASANXUAT" ColumnName="NHASANXUAT" />
+                <ScalarProperty Name="SANPHAMMOI" ColumnName="SANPHAMMOI" />
+                <ScalarProperty Name="LOAISANPHAM" ColumnName="LOAISANPHAM" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="MOTA" ColumnName="MOTA" />
+                <ScalarProperty Name="HINHANH" ColumnName="HINHANH" />
+                <ScalarProperty Name="DONGIABAN" ColumnName="DONGIABAN" />
+                <ScalarProperty Name="DONGIAMUA" ColumnName="DONGIAMUA" />
+                <ScalarProperty Name="TEN" ColumnName="TEN" />
+                <ScalarProperty Name="MA" ColumnName="MA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="THANHTOANONLINEs">
             <EntityTypeMapping TypeName="TMDT_DB3Model.THANHTOANONLINE">
               <MappingFragment StoreEntitySet="THANHTOANONLINE">
-                <ScalarProperty Name="MA" ColumnName="MA" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="MATHANHVIEN" ColumnName="MATHANHVIEN" />
                 <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+                <ScalarProperty Name="MATHANHVIEN" ColumnName="MATHANHVIEN" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="MA" ColumnName="MA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="THANHVIENs">
             <EntityTypeMapping TypeName="TMDT_DB3Model.THANHVIEN">
               <MappingFragment StoreEntitySet="THANHVIEN">
-                <ScalarProperty Name="MA" ColumnName="MA" />
-                <ScalarProperty Name="TENDANGNHAP" ColumnName="TENDANGNHAP" />
-                <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
-                <ScalarProperty Name="TEN" ColumnName="TEN" />
-                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
-                <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="THONGTINMOTA" ColumnName="THONGTINMOTA" />
-                <ScalarProperty Name="CUSTOMER_KEY" ColumnName="CUSTOMER_KEY" />
-                <ScalarProperty Name="LoaiThanhVien" ColumnName="LoaiThanhVien" />
-                <ScalarProperty Name="DADANGNHAP" ColumnName="DADANGNHAP" />
-                <ScalarProperty Name="MAKICHHOAT" ColumnName="MAKICHHOAT" />
                 <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+                <ScalarProperty Name="MAKICHHOAT" ColumnName="MAKICHHOAT" />
+                <ScalarProperty Name="DADANGNHAP" ColumnName="DADANGNHAP" />
+                <ScalarProperty Name="LoaiThanhVien" ColumnName="LoaiThanhVien" />
+                <ScalarProperty Name="CUSTOMER_KEY" ColumnName="CUSTOMER_KEY" />
+                <ScalarProperty Name="THONGTINMOTA" ColumnName="THONGTINMOTA" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="TEN" ColumnName="TEN" />
+                <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+                <ScalarProperty Name="TENDANGNHAP" ColumnName="TENDANGNHAP" />
+                <ScalarProperty Name="MA" ColumnName="MA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TRANGTHAIDONHANGs">
             <EntityTypeMapping TypeName="TMDT_DB3Model.TRANGTHAIDONHANG">
               <MappingFragment StoreEntitySet="TRANGTHAIDONHANG">
-                <ScalarProperty Name="MA" ColumnName="MA" />
-                <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
                 <ScalarProperty Name="DAXOA" ColumnName="DAXOA" />
+                <ScalarProperty Name="TINHTRANG" ColumnName="TINHTRANG" />
+                <ScalarProperty Name="MA" ColumnName="MA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

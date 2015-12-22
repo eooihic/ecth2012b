@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\THIENTHONGTHAI\Documents\ec-th2012-b\Source\TDMT_DOAN\TDMT_DOAN\Models\TMDT_DB.edmx'. 
+﻿// T4 code generation is enabled for model 'F:\ecth2012b\TDMT_DOAN\Models\TMDT_DB.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
