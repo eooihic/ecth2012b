@@ -8,6 +8,8 @@ namespace TDMT_DOAN.Areas.API.Models
 {
     public class OrderModel
     {
+		
+		
         public string order_id { get; set; }
         public string product_id { get; set; }
         public string product_name { get; set; }
