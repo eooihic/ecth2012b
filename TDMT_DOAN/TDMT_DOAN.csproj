@@ -1407,7 +1407,6 @@
       <LastGenOutput>TMDT_DB.cs</LastGenOutput>
     </Content>
     <Content Include="Areas\B2B\Content\font\Amble-Regular-webfont.ttf" />
-    <Content Include="Areas\B2B\Content\images\Thumbs.db" />
     <Content Include="Areas\B2B\Views\Aution\AddAutionRecord.cshtml" />
     <Content Include="Areas\B2B\Views\Aution\CompleteAution.cshtml" />
     <Content Include="Areas\B2B\Views\Aution\Index.cshtml" />
@@ -1431,6 +1430,7 @@
     <Content Include="Areas\APIView\Views\web.config" />
     <Content Include="Areas\APIView\Views\_ViewStart.cshtml" />
     <Content Include="Areas\API\Views\web.config" />
+    <Content Include="Areas\B2B\Content\images\Thumbs.db" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
