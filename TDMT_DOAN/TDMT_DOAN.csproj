@@ -1345,7 +1345,6 @@
     <Content Include="Areas\Admin\Views\AdminLogin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminProductManage\Create.cshtml" />
     <Content Include="Areas\Admin\Views\AdminProductManage\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminProductManage\Detail.cshtml" />
     <Content Include="Areas\Admin\Views\AdminProductManage\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminStyleProduct\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminStyleProduct\Create.cshtml" />
