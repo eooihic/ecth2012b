@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TDMT_DOAN.Models.BANGGHIDAUGIA>
+
+@{
+    ViewBag.Title = "AutionRecordShow";
+    Layout = "~/Areas/B2B/Views/Shared/_B2B_Layout.cshtml";
+}
+
+<div class="header_bottom_left">
+    <div class="categories">
+        <ul>
+            <h3>NHÀ CUNG CẤP</h3>
+            <li>@Html.ActionLink("Thông tin tài khoản", "Index", "User")</li>
+            <li>@Html.ActionLink("Bản ghi đấu giá", "AutionRecordShow", "User")</li>
+            <li>@Html.ActionLink("Hợp đồng đang có", "ContractsShow", "User")</li>
+        </ul>
+    </div>
+</div>
+<div class="header_bottom_right">
+    <div class="section group">
+        <div class="grid_2_of_2 images_2_of_2">
+            <div class="categories">
+                <h3>Hợp đồng hiện có</h3>
+            </div>
+            @foreach (var item in Model)
+            {
+                <h2>Mã bảng ghi: @item.MA</h2>
+                <h2>Tên nhà cung cấp: @item.NHACUNGCAP</h2>
+                <h2>Sản phẩm giao dịch: @item.SANPHAM</h2>
+                <h2>Số lượng: @item.SOLUONG</h2>
+                <h2>Giá mua: @item.GIA</h2>
+                <h2>Ngày bat đầu: @item.NGAYBATDAU</h2>
+                <h2>Ngày kết thúc: @item.NGAYKETTHUC</h2>
+                <div class="price-details" />
+            }
+            <div class="price-details">
+                <div class="add-cart">
+                    <h4>
+                        @Html.ActionLink("Trở về", "Index", "B2BHome")
+                    </h4>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@model TDMT_DOAN.Areas.Admin.Models.LoginModel
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true,null,new {@class = "arlet arlet-danger"})
+                            <fieldset>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(model => model.UserName, new { @class = "textbox", @type = "text", @placeholder = "UserName" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(model => model.PassWord, new { @class = "textbox", @type = "password", @placeholder = "PassWord" })
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <Button type="Submit" class="btn btn-lg btn-success btn-block">Login</Button>
+                            </fieldset>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+

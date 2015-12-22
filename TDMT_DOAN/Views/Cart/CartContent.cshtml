@@ -1,0 +1,68 @@
+﻿@model List<TDMT_DOAN.Models.ViewModels.CartSession>
+
+@{
+    ViewBag.Title = "CartContent";
+}
+
+
+@if (Model != null && Model.Count > 0 )
+{
+
+using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    
+    
+     <!--Table detail-->
+<table class="table_cart">
+    <tr>
+        <th>STT</th>
+        <th>Sản phẩm</th>
+        <th>Số lượng</th>
+        <th>Giá tiền</th>
+        <th>Tổng tiền</th>
+        <th>Xóa</th>
+    </tr>
+  
+       
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <tr>
+            <td>@(i+1)</td>
+            <td><a href="@Url.Action("Details", "Product", new { id = Model[i].sp.MA})"><img width="50" style="overflow:hidden" height="70" src="@Url.Content("~/Content/images/" + Model[i].sp.HINHANH)" alt="iphone" /><br />@Model[i].sp.TEN</a></td>
+           
+            <td width="100">@Html.TextBoxFor(modelcount => Model[i].soluong, new { @class = "count_product" , @type = "number" })</td>
+             
+             
+                <td>@String.Format("{0:0,0}", Model[i].sp.DONGIABAN)</td>
+            <td>@String.Format("{0:0,0}", Model[i].sp.DONGIABAN * Model[i].soluong)</td>
+            <td>@Html.CheckBoxFor(modelcheck => Model[i].daxoa, new { @checked = Model[i].daxoa})</td>
+        </tr>
+        }
+           
+  </table>
+
+
+    string summoney = String.Format("{0:0,0}", ViewBag.summoney);
+    <div style=" margin-left: 20px; margin-top: 40px"> <h3>Tổng tiền cần thanh toán: @summoney VNĐ</h3> </div>
+
+
+    <input type="submit" name="Update" value="Cập nhật" id="submitupdate" />
+    <a href="@Url.Action("Index", "Home")"><input type="button" name="Back" value="Quay lại mua hàng" id="submitupdate" /></a>
+    <a href="@Url.Action("Index", "Checkout")"><input type="button" name="Checkout" value="Thanh toán" id="submitupdate" /></a>
+
+
+   
+
+   
+}
+
+    
+}
+else
+{
+    <h3>Bạn chưa thêm sản phẩm nào vào giỏ hàng !</h3>
+}
+
+ 

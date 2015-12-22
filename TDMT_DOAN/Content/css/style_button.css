@@ -1,0 +1,24 @@
+﻿#submitupdate {
+    width: auto;
+    height: 30px;
+    position: relative;
+   margin-top: 50px;
+    float: left;
+    border-radius: 10px;
+    font-family: 'Helvetica', cursive;
+    font-size: 15px;
+    color: #FFF;
+    text-decoration: none;  
+    background-color: #3498DB;
+    border-bottom: 5px solid #2980B9;
+    text-shadow: 0px -2px #2980B9;
+    /* Animation */
+    transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+    text-align:center;
+   margin-right: 50px;
+   margin-left: 20px;
+   vertical-align:central;
+    
+}
+

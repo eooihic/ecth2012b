@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="top_search">
+    @using (Html.BeginForm("Search", "Product"))
+    {
+        @Html.TextBox("Search_string", "", new { @class = "search_input", @placeholder = "Tìm kiếm" })
+
+    }
+
+    @*<a href="@Url.Action("Index", "Product", new { name = "Search" , id = -1 })"><img src="@Url.Content("~/Content/images/search-icon.png")" alt="" border="0" width="25" height="25" /></a>*@
+</div>
+

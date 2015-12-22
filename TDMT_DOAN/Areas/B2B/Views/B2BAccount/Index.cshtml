@@ -1,0 +1,29 @@
+﻿@model TDMT_DOAN.Models.NHACUNGCAP
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/B2B/Views/Shared/_B2B_Layout.cshtml";
+}
+    <div class="section group">
+        <div class="grid_2_of_2 images_2_of_2">
+            <div class="categories">
+                <h3>Thông tin chi tiết</h3>
+            </div>
+            <h2>Tên đăng nhập: @Html.DisplayFor(model => model.TENDANGNHAP)</h2>
+            <h2>Mật khẩu: @Html.DisplayFor(model => model.MATKHAU)</h2>
+            <h2>Địa chỉ: @Html.DisplayFor(model => model.DIACHI)</h2>
+            <h2>Email: @Html.DisplayFor(model => model.EMAIL)</h2>
+            <h2>Điện thoại: @Html.DisplayFor(model => model.DIENTHOAI)</h2>
+            <h2>Supplier key: @Html.DisplayFor(model => model.supplier_key)</h2>
+            <h2>Requset token: @Html.DisplayFor(model => model.request_token)</h2>
+            <h2>Callback: @Html.DisplayFor(model => model.callback)</h2>
+            <div class="price-details">
+                <div class="add-cart">
+                    <h4>
+                        @Html.ActionLink("Trở về", "Index", "B2BHome")
+                    </h4>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>

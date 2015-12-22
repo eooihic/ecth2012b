@@ -1,0 +1,37 @@
+﻿@model TDMT_DOAN.Models.NHACUNGCAP
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/B2B/Views/Shared/_B2B_Layout.cshtml";
+}
+
+<div class="main">
+    <div class="content">
+        <div class="section group">
+            <div class="col span_2_of_3">
+                <div class="contact-form" style="margin-top:20px;">
+                    <h2>Đăng nhập</h2>
+                    @using (Html.BeginForm("Index", "B2BLogin", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(false, "", "");
+                        <div>
+                            <span><label>Tên đăng nhập</label></span>
+                            @Html.TextBoxFor(mode => mode.TENDANGNHAP)
+                        </div>
+                        <div>
+                            <span><label>Mật khẩu</label></span>
+                            @Html.TextBoxFor(mode => mode.MATKHAU, new { @type ="password"})
+                            <span>
+                                <input type="checkbox" name="MatKhau" class="checkbox" title="Giữ tôi luôn đăng nhập"/>
+                            </span>
+                        </div>
+                        <div>
+                            <span><input type="submit" value="Đăng nhập" class="myButton"></span>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

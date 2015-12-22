@@ -1,0 +1,44 @@
+﻿@model List<TDMT_DOAN.Areas.B2B.Models.AutionRecordModel>
+
+@{
+    ViewBag.Title = "ListAutionRecord";
+    Layout = "~/Areas/B2B/Views/Shared/_B2B_Layout.cshtml";
+}
+<div class="main">
+    <div class="content">
+        <div class="content_top">
+            <div class="heading">
+                <h3>Danh sách bản ghi đấu giá</h3>
+            </div>
+            <div class="see">
+                <p><a href="#">Xem tat ca</a></p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="section group">
+
+            @foreach (var item in Model)
+            {
+                <div class="grid_2_of_2 images_2_of_2">
+                    <h2>Ma: @item.id</h2>
+                    <h2>Tên đăng nhập: @item.username</h2>
+                    <h2>Mật khẩu: @item.passwork</h2>
+                    <h2>Email: @item.email</h2>
+                    <h2>Là thành viên: @(item.isGest?"Có":"Không")</h2>
+                    <h2>Điện thoại: @item.phone</h2>
+                    <h2>Mã sản phẩm: @item.productID</h2>
+                    <h2>Số lượng mua: @item.quantity</h2>
+                    <h2>Giá mua: @item.price</h2>
+                </div>
+                <div class="price-details">
+                    <div class="add-cart">
+                        <h4>
+                            @Html.ActionLink("Chấp nhận", "AcceptAutionRecord", "ManageAutionResult", new{id = item.id },null);
+                        </h4>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>

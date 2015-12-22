@@ -1,0 +1,40 @@
+﻿@model TDMT_DOAN.Models.ViewModels.ReceiverViewModel
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@ViewBag.id
+
+<!--Phần thông tin người nhận-->
+<h3>Nhập thông tin nhận hàng</h3>
+
+<div class="container" style="text-align:center; padding-top:50px">
+    @using (Html.BeginForm("Index", "Checkout"))
+    {
+        <div class="form-group">
+            <label for="name">Họ tên</label>
+            @Html.TextBoxFor(x => x.name, new { @class = "form-control" })
+           
+        </div>
+        <div class="form-group">
+            <label for="phone">Số điện thoại</label>
+            @Html.TextBoxFor(x => x.phone, new { @class = "form-control" })
+           
+        </div>
+        <div class="form-group">
+            <label for="address">Địa chỉ</label>
+            @Html.TextBoxFor(x => x.address, new { @class = "form-control" })
+           
+        </div>
+
+    <button type="submit" id="submitupdate" style="align-content:center">Tiếp tục</button>
+    }
+</div>
+
+
+
+
+
+

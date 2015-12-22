@@ -1,0 +1,88 @@
+﻿@using TDMT_DOAN.Models.ViewModels;
+@{
+    ViewBag.Title = "CheckoutByPayPal";
+}
+
+<h3>Thanh toán thông qua Paypal</h3>
+Quý khách vui lòng kiểm tra lại chính xác thông tin đơn hàng một lần nữa. Nếu không có gì sai sót, vui lòng nhấn nút thanh toán bên dưới đế tiến hành giao dịch.
+
+
+
+<form action="@System.Configuration.ConfigurationManager.AppSettings["urlSubmitPayment"]">
+    <input type="hidden" name="cmd" value="_cart" />
+    <input type="hidden" name="upload" value="1" />
+    <input type="hidden" name="return" value="@System.Configuration.ConfigurationManager.AppSettings["urlReturn"]" />
+    <input type="hidden" name="business" value="@System.Configuration.ConfigurationManager.AppSettings["accountBusiness"]" />
+
+
+    <!--Hien thi thong tin xem lai gio hang-->
+
+
+    <!--Table detail-->
+    <table class="table_cart">
+        <tr>
+            <th>STT</th>
+            <th>Sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Giá tiền</th>
+            <th>Tổng tiền</th>
+           
+        </tr>
+        @if (Model != null)
+        {
+
+            for (int i = 0; i < Model.listCartSession.Count; i++)
+            {
+                <tr>
+                    <td>@(i + 1)</td>
+                    <td><a href="#"><img width="50" style="overflow:hidden" height="70" src="@Url.Content("~/Content/images/" + Model.listCartSession[i].sp.HINHANH)" alt="iphone" /><br />@Model.listCartSession[i].sp.TEN</a></td>
+                    <td>@Model.listCartSession[i].soluong</td>
+                    
+                    <td>@String.Format("{0:0,0}", Model.listCartSession[i].sp.DONGIABAN)</td>
+                    <td>@String.Format("{0:0,0}", Model.listCartSession[i].sp.DONGIABAN * Model.listCartSession[i].soluong)</td>
+                    
+                   
+                </tr>
+            }
+
+        }
+    </table>
+
+   
+    <div style=" margin-left: 20px; margin-top: 40px"> <h3>Tổng tiền cần thanh toán: @String.Format("{0:0,0}", ViewBag.summoney) VNĐ</h3> </div>
+
+    <!--Thong tin se chuyen qua thanh toan paypal-->
+    @if (Model != null)
+    {
+
+        for (int i = 0; i < Model.listCartSession.Count; i++)
+        {
+            <input type="hidden" name ="@Url.Content("item_name_" + (i+1))" value="@Model.listCartSession[i].sp.TEN" />
+    <input type="hidden" name="@Url.Content("item_number_" + (i+1))" value="@(i+1)" />
+            int usd = (int)(Model.listCartSession[i].sp.DONGIABAN / 21000);
+            <input type="hidden" name="@Url.Content("amount_" + (i+1))" value="@usd" />
+    <input type="hidden" name="@Url.Content("quantity_" + (i+1))" value="@Model.listCartSession[i].soluong" />
+
+        }
+
+    }
+    
+    <!--
+        for (int i = 0; i < 2; i++)
+    {
+        <input name ="Url.Content("item_name_" + (i+1))" value="Item" />
+        <input name="Url.Content("item_number_" + (i+1))" value="1" />
+        <input name="Url.Content("amount_" + (i+1))" value="10" />
+        <input name="Url.Content("quantity_" + (i+1))" value="2" />
+    }
+
+    -->
+  
+    
+       
+
+    <input type="submit" value="Thanh toán" id="submitupdate" />
+    
+
+
+</form>

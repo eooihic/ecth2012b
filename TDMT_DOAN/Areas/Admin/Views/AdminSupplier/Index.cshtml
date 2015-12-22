@@ -1,0 +1,68 @@
+﻿@model List<TDMT_DOAN.Models.NHACUNGCAP>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                DANH SÁCH NHÀ CUNG CẤP
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <span>
+                            @Html.ActionLink("Thêm nhà cung cấp mới", "Create", "AdminSupplier")
+                        </span>
+                        <thead>
+                            <tr>
+                                <th>Mã</th>
+                                <th>Tên Đăng Nhập</th>
+                                <th>Mật Khẩu</th>
+                                <th>Tên</th>
+                                <th>Địa Chỉ</th>
+                                <th>Điện Thoại</th>
+                                <th>Email</th>
+                                <th>Supplier_key</th>
+                                <th>Request_token</th>
+                                <th>Verifier_token</th>
+                                <th>callback</th>
+                                <th>DADANGNHAP</th>
+                                <th>Hiệu Chỉnh Thông Số</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.MA</td>
+                                    <td>@item.TENDANGNHAP</td>
+                                    <td>@item.MATKHAU</td>
+                                    <td>@item.TEN</td>
+                                    <td>@item.DIACHI</td>
+                                    <td>@item.DIENTHOAI</td>
+                                    <td>@item.EMAIL</td>
+                                    <td>@item.supplier_key</td>
+                                    <td>@item.request_token</td>
+                                    <td>@item.verifier_token</td>
+                                    <td>@item.callback</td>
+                                    <td>@item.DADANGNHAP</td>
+                                    <td>
+                                        @Html.ActionLink("Sửa", "Edit", new { id = @item.MA })
+                                        @Html.ActionLink("Xóa", "Delete", new { id = @item.MA })
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

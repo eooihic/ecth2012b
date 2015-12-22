@@ -1,0 +1,43 @@
+﻿@model List<TDMT_DOAN.Models.SANPHAM>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/B2B/Views/Shared/_B2B_Layout.cshtml";
+}
+<div class="main">
+    <div class="content">
+        <div class="content_top">
+            <div class="heading">
+                <h3>Danh sách sản phẩm cần mua</h3>
+            </div>
+            <div class="see">
+                <p><a href="#">Xem tat ca</a></p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="section group">
+
+            @foreach (var item in Model)
+            {
+                string imagelink1 = "/Content/images/" + item.HINHANH;
+                string url = "/dau-gia/dau-gia-nguoc-/" + item.MA;
+                <div class="grid_2_of_2 images_2_of_2">
+                    <a href="preview.html"><img src=@imagelink1 alt=@item.TEN height="300" width="250"/></a>
+                    <h2>@item.TEN</h2>
+                    <h2>SỐ LƯỢNG CẦN MUA: @item.SOLUONG</h2>
+                    <h2>GÍA MUA MỘT ĐƠN VỊ SẢN PHẨM: @item.DONGIABAN</h2>
+                    <h2>THỜI GIAN BẮT ĐẦU ĐẤU GIÁ: @DateTime.Now</h2>
+                    <h2>THỜI GIAN KẾT THÚC ĐẤU GIÁ: @DateTime.Now.AddDays(7)</h2>
+                    <div class="price-details">
+                        <div class="add-cart">
+                            <h4>
+                                @Html.ActionLink("Đấu giá", "CompleteAution", "Aution", new { id = item.MA }, null);
+                            </h4>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

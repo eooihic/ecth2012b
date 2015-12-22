@@ -1,0 +1,66 @@
+﻿@model List<TDMT_DOAN.Models.THANHVIEN>
+
+@{
+    ViewBag.Title = "Index";
+}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    DANH SÁCH SẢN PHẨM
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <span>
+                                @Html.ActionLink("Thêm thành viên mới", "Create")
+                            </span>
+                            <thead>
+                                <tr>
+                                    <th>Mã</th>
+                                    <th>Tên đăng nhập</th>
+                                    <th>Mật khẩu</th>
+                                    <th>Tên thành viên</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Điện thoại</th>
+                                    <th>Email</th>
+                                    <th>Thông tin mô tả</th>
+                                    <th>Customer_Key</th>
+                                    <th>Loại thành viên</th>
+                                    <th>Đã đăng nhập</th>
+                                    <th>Hiệu Chỉnh Thông Số</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.MA</td>
+                                        <td>@item.TENDANGNHAP</td>
+                                        <td>@item.MATKHAU</td>
+                                        <td>@item.TEN</td>
+                                        <td>@item.DIACHI</td>
+                                        <td>@item.DIENTHOAI</td>
+                                        <td>@item.EMAIL</td>
+                                        <td>@item.THONGTINMOTA</td>
+                                        <td>@item.CUSTOMER_KEY</td>
+                                        <td>@item.LoaiThanhVien</td>
+                                        <td>@item.DADANGNHAP</td>
+                                        <td> 
+                                            @Html.ActionLink("Sửa", "Edit", new { id = @item.MA })
+                                            @Html.ActionLink("Xóa", "Delete", new { id = @item.MA })
+                                        </td>
+                                    </tr>
+                                    
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+

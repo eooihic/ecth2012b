@@ -1,0 +1,23 @@
+﻿@model TDMT_DOAN.Models.ViewModels.NewProductViewModel
+@{
+    ViewBag.Title = "NewProduct";
+}
+
+<div class="border_box">
+    <div class="product_title"><a href="@Url.Action("Details", "Product", new { id = Model.newproduct.MA})">@Model.newproduct.TEN</a></div>
+    <div class="product_img"><a href="@Url.Action("Details", "Product", new { id = Model.newproduct.MA})"><img width="100" height="100" src="@Url.Content("~/Content/images/" + Model.newproduct.HINHANH)" alt="" border="0" /></a></div>
+    @if (Model.promotion != 0)
+    {
+        string dongiaban = String.Format("{0:0,0}", Model.newproduct.DONGIABAN);
+        string giamgia = String.Format("{0:0,0}", Model.promotion); 
+        <div class="prod_price"><span class="reduce">@dongiaban</span> <span class="price">@giamgia</span></div>
+    }
+    else
+    {
+        string dongiaban = String.Format("{0:0,0}", Model.newproduct.DONGIABAN);
+        <div class="prod_price"><span class="price">@dongiaban</span></div>
+    }
+    
+    
+</div>
+
